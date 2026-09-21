@@ -23,14 +23,14 @@ pnpm build
 
 Next.js pre-renders the single-page route and metadata into `out/`. React hydrates the interactive components. This is a Next.js static export, with server-rendered HTML for search engines and no backend requirement. To inspect the generated production output, stop the development server and run `pnpm preview`.
 
-Before deployment, set `SITE_URL` to the actual HTTPS origin in `.env.local` or the hosting build environment. Set `SITE_INDEXABLE=true` only for the approved public launch. Staging defaults to noindex and disallows crawlers. These settings do not provide access protection.
+Before deployment, set `SITE_URL` to the actual HTTPS origin in `.env.local` or the hosting build environment. A path in `SITE_URL` becomes the Next.js `basePath`, so a project GitHub Pages URL and a custom domain both work without code changes. Set `SITE_INDEXABLE=true` only for the approved public launch. Staging defaults to noindex and disallows crawlers. These settings do not provide access protection.
 
-Build command: `pnpm build`. Publish directory: `out`. No hosting target is configured yet.
+Build command: `pnpm build`. Publish directory: `out`. Pushes to `main` deploy to GitHub Pages through `.github/workflows/pages.yml`, which sets `SITE_URL` to the project page URL. With a custom domain, change that one value and add a `CNAME` file to `public/`.
 
 ## Structure
 
 - `src/app/page.tsx` composes the landing page with App Router server components.
-- `src/app/layout.tsx` owns metadata, font preload, and motion preferences.
+- `src/app/layout.tsx` owns metadata, the local Plex font, and motion preferences.
 - `src/app/robots.ts` generates crawler rules from the deployment setting.
 - `src/components/sections.tsx`, `hero.tsx`, and `footer.tsx` render the narrative content.
 - `header.tsx`, `benefits.tsx`, and `process.tsx` use React state for interactive controls.

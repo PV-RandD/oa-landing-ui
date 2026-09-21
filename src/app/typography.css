@@ -1,15 +1,8 @@
-@font-face {
-  font-family: "IBM Plex Sans";
-  src: url("/assets/fonts/plex-latin.woff2") format("woff2");
-  font-style: normal;
-  font-weight: 100 900;
-  font-display: swap;
-}
 /* Reading-first typography: one family, deliberate hierarchy.
    This layer owns the responsive type scale and its associated spacing. */
 :root {
-  --font-display: "IBM Plex Sans", system-ui, sans-serif;
-  --font-body: "IBM Plex Sans", system-ui, sans-serif;
+  --font-display: var(--font-plex), system-ui, sans-serif;
+  --font-body: var(--font-plex), system-ui, sans-serif;
   --type-body: 1.0625rem;
   --type-small: 0.875rem;
   --type-label: 0.75rem;

@@ -1,13 +1,22 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { MotionProvider } from "@/components/motion-provider";
-import { siteUrl, indexable } from "@/lib/site";
+import localFont from "next/font/local";
+import { siteUrl, indexable, asset } from "@/lib/site";
 import "./globals.css";
+
+const plex = localFont({
+  src: "../../public/assets/fonts/plex-latin.woff2",
+  weight: "100 900",
+  display: "swap",
+  variable: "--font-plex",
+});
 
 const title = "OpenAssets | Real-world asset tokenization";
 const description =
   "Explore asset issuance, management, and programmable compliance tools from OpenAssets. Tokenization infrastructure for institutions.";
 const image = {
+  // Next prefixes Open Graph image paths with basePath itself.
   url: "/assets/hero-open-rails.png",
   width: 1672,
   height: 941,
@@ -19,7 +28,7 @@ export const metadata: Metadata = {
   description,
   alternates: { canonical: "/" },
   robots: { index: indexable, follow: indexable },
-  icons: { icon: "/assets/favicon.svg" },
+  icons: { icon: asset("/assets/favicon.svg") },
   openGraph: {
     title,
     description,
@@ -33,16 +42,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = { themeColor: "#131313" };
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
-      <head>
-        <link
-          rel="preload"
-          href="/assets/fonts/plex-latin.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-      </head>
+    <html lang="en" className={plex.variable}>
       <body>
         <MotionProvider>{children}</MotionProvider>
       </body>

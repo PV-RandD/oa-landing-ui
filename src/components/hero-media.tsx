@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { createHeroController } from "@/lib/hero-controller.mjs";
 import { useMotionPreference } from "./motion-provider";
 import { AssetMedia } from "./asset-media";
+import { asset } from "@/lib/site";
 
 type HeroMediaProps = {
   desktopStill?: string;
@@ -40,7 +41,7 @@ export function HeroMedia({
   return (
     <>
       <picture className="hero-art">
-        <source media="(max-width: 700px)" srcSet={mobileStill} />
+        <source media="(max-width: 700px)" srcSet={asset(mobileStill)} />
         <AssetMedia
           src={desktopStill}
           width={1672}
@@ -59,8 +60,8 @@ export function HeroMedia({
           preload="none"
           aria-hidden="true"
           tabIndex={-1}
-          data-desktop-src={desktopVideo}
-          data-mobile-src={mobileVideo}
+          data-desktop-src={asset(desktopVideo)}
+          data-mobile-src={asset(mobileVideo)}
         />
       ) : null}
     </>
