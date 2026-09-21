@@ -82,7 +82,8 @@ export function Reveal({
         );
         observer.disconnect();
       },
-      { threshold: 0.08 },
+      // Reveal once the element has crossed the line 20% up from the bottom edge, including when a jump scrolls past it.
+      { rootMargin: "10000px 0px -20% 0px" },
     );
     observer.observe(element);
     return () => {
