@@ -1,0 +1,460 @@
+/* Spacing and interaction polish. Typography remains in typography.css. */
+:root {
+  --section-space: clamp(76px, 7.2vw, 112px);
+  --content-gap: clamp(28px, 4vw, 64px);
+}
+html {
+  scroll-padding-top: var(--anchor-offset, 120px);
+}
+.wrap {
+  width: 88%;
+  max-width: 1320px;
+}
+.section {
+  padding-block: var(--section-space);
+}
+.section-top {
+  margin-bottom: 40px;
+}
+.section-heading {
+  margin-bottom: 40px;
+  gap: var(--content-gap);
+}
+.site-header {
+  position: fixed;
+  top: 20px;
+  left: 5%;
+  width: 90%;
+  max-width: 1440px;
+  background: #191b1cc7;
+  box-shadow: 0 8px 28px #00000012;
+  transition:
+    background 0.2s,
+    box-shadow 0.2s,
+    border-color 0.2s;
+}
+.site-header.is-scrolled {
+  background: #181a1bef;
+  border-color: #ffffff30;
+  box-shadow: 0 8px 30px #0004;
+}
+.desktop-nav a {
+  position: relative;
+}
+.desktop-nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 3px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #d4d0c6;
+  transform: scaleX(0);
+  transition: transform 0.18s;
+}
+.desktop-nav a[aria-current="location"] {
+  color: #fff;
+}
+.desktop-nav a[aria-current="location"]::after {
+  transform: scaleX(1);
+}
+.mobile-menu a[aria-current="location"] {
+  color: #fff;
+  background: #ffffff08;
+  padding-inline: 12px;
+  border-radius: 4px;
+}
+section[id] {
+  outline-offset: 8px;
+}
+.hero {
+  height: auto;
+  min-height: max(780px, 100svh);
+  max-height: none;
+  display: flex;
+  flex-direction: column;
+}
+.hero-copy {
+  flex: 1;
+  padding-bottom: 95px;
+}
+.hero-bottom {
+  position: relative;
+  left: auto;
+  bottom: auto;
+  margin-top: auto;
+  margin-bottom: 28px;
+}
+.intro-grid {
+  gap: var(--content-gap);
+}
+.intro-visual {
+  border-color: #ffffff20;
+  box-shadow: 0 18px 40px #0002;
+}
+.intro-visual img {
+  object-fit: contain;
+  max-height: none;
+}
+/* All panels share one grid cell, preserving the largest panel's natural height.
+   Inactive panels retain hidden + inert + aria-hidden semantics. */
+.benefit-panels {
+  display: grid;
+  isolation: isolate;
+}
+.benefit-panel {
+  grid-area: 1/1;
+  min-height: 0;
+  padding-top: 36px;
+  align-items: center;
+  gap: var(--content-gap);
+}
+.benefit-panel[hidden] {
+  display: grid !important;
+  visibility: hidden;
+  pointer-events: none;
+}
+.benefit-panel:not([hidden]) {
+  animation: panel-appear 0.22s ease-out;
+}
+.benefit-tabs button {
+  border-radius: 5px 5px 0 0;
+  padding-inline: 12px;
+  transition:
+    background 0.18s,
+    color 0.18s,
+    border-color 0.18s;
+}
+.benefit-tabs button:hover {
+  background: #ffffff04;
+}
+.benefit-tabs button[aria-selected="true"] {
+  background: #ffffff07;
+}
+.benefit-panel > img {
+  aspect-ratio: 4/3;
+  object-fit: contain;
+  max-height: none;
+  background: #151617;
+  border: 1px solid #ffffff12;
+}
+.benefit-copy {
+  padding-block: 12px;
+}
+.process-grid {
+  gap: var(--content-gap);
+  align-items: start;
+}
+.process-visual {
+  position: sticky;
+  top: 126px;
+  min-height: 0;
+}
+.step summary {
+  padding: 24px 10px;
+  border-radius: 5px;
+  transition:
+    background 0.18s,
+    color 0.18s;
+}
+.step summary:hover {
+  background: #ffffff05;
+}
+.step[open] {
+  background: #ffffff05;
+}
+.step[open] summary {
+  color: #f0ece4;
+}
+.step[open] .step-number {
+  color: #f0ece4;
+}
+.step[open] .step-symbol {
+  transform: rotate(45deg);
+}
+.step p {
+  margin-left: 49px;
+  padding-right: 18px;
+}
+.stage-track {
+  gap: 10px;
+  margin-top: 24px;
+}
+.stage-track button {
+  flex: 1;
+  min-width: 0;
+  min-height: 44px;
+  padding: 10px 4px;
+  border: 0;
+  border-top: 2px solid #ffffff25;
+  background: transparent;
+  color: #a9b5c4;
+  font-size: 0.8125rem;
+  font-variant-numeric: tabular-nums;
+  transition:
+    border-color 0.18s,
+    background 0.18s,
+    color 0.18s;
+}
+.stage-track button:hover {
+  background: #ffffff05;
+  color: #fff;
+}
+.stage-track button.active {
+  border-color: #e2d9c8;
+  color: #e2d9c8;
+}
+.stage-track button[aria-pressed="true"] {
+  background: #ffffff08;
+  color: #fff;
+}
+.possibilities-grid {
+  gap: var(--content-gap);
+}
+.insight-grid {
+  gap: 32px;
+}
+.insight-card {
+  display: block;
+  border-bottom: 1px solid #ffffff25;
+  padding-bottom: 28px;
+  border-radius: 6px 6px 0 0;
+}
+.insight-card:focus-visible .card-arrow {
+  background: #d8d4c9;
+  color: #17191b;
+}
+.insight-card:focus-visible img {
+  transform: scale(1.025);
+}
+.insight-image {
+  aspect-ratio: 1.55;
+}
+.insight-image img {
+  object-position: center 57%;
+}
+.insight-card h3 {
+  max-width: 25ch;
+}
+.closing {
+  padding-block: 100px;
+}
+.footer-top {
+  padding-bottom: 48px;
+  gap: 32px;
+}
+@keyframes panel-appear {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (min-width: 1600px) {
+  .site-header {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .hero-bottom {
+    left: auto;
+  }
+}
+@media (max-width: 1050px) {
+  .site-header {
+    padding: 13px 18px;
+  }
+  .section-heading {
+    gap: 24px;
+  }
+}
+@media (max-width: 850px) {
+  .process-visual {
+    position: relative;
+    top: auto;
+  }
+  .step-list {
+    order: 0;
+  }
+  .rail-diagram {
+    height: 220px;
+  }
+  .benefit-panel {
+    gap: 24px;
+  }
+  .benefit-panel > img {
+    max-width: 640px;
+    justify-self: center;
+  }
+  .section-heading {
+    margin-bottom: 32px;
+  }
+}
+@media (max-width: 700px) {
+  html {
+    scroll-padding-top: var(--anchor-offset, 112px);
+  }
+  :root {
+    --section-space: 64px;
+    --content-gap: 32px;
+  }
+  .site-header {
+    top: 12px;
+    padding: 11px 15px;
+  }
+  .hero {
+    min-height: max(820px, 100svh);
+    display: block;
+  }
+  .hero-copy {
+    padding-top: 148px;
+    padding-bottom: 240px;
+  }
+  .hero-bottom {
+    margin-bottom: 24px;
+  }
+  .hero-art img,
+  .hero-video {
+    object-position: center bottom;
+  }
+  .section-top {
+    margin-bottom: 30px;
+    padding-bottom: 18px;
+  }
+  .section-heading {
+    margin-bottom: 28px;
+  }
+  .benefit-tabs {
+    gap: 0 12px;
+  }
+  .benefit-tabs button {
+    padding: 14px 10px;
+    min-height: 92px;
+  }
+  .benefit-panel {
+    padding-top: 28px;
+    gap: 24px;
+  }
+  .benefit-copy h3 {
+    margin-bottom: 18px;
+  }
+  .benefit-copy p {
+    margin-bottom: 18px;
+  }
+  .benefit-panel > img {
+    margin-top: 0;
+  }
+  .feature-tags {
+    margin-top: 18px;
+  }
+  .process-grid {
+    gap: 28px;
+  }
+  .process-visual {
+    padding: 20px;
+  }
+  .rail-diagram {
+    height: 200px;
+  }
+  .step summary {
+    padding: 21px 8px;
+    gap: 15px;
+  }
+  .step p {
+    margin-left: 39px;
+    padding-right: 12px;
+    padding-bottom: 23px;
+  }
+  .stage-track {
+    margin-top: 20px;
+  }
+  .possibilities-grid {
+    gap: 35px;
+  }
+  .asset-list > div {
+    padding: 21px 0;
+  }
+  .insight-grid {
+    gap: 30px;
+  }
+  .insight-card {
+    padding-bottom: 24px;
+  }
+  .insight-card .eyebrow {
+    margin-top: 19px;
+  }
+  .closing {
+    padding-block: 75px;
+  }
+  .footer-top {
+    gap: 30px 22px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .benefit-panel:not([hidden]) {
+    animation: none;
+  }
+}
+.motion-paused .benefit-panel {
+  animation: none;
+}
+
+/* Keep link feedback from reflowing adjacent content. */
+.inline-link,
+.inline-link:hover {
+  gap: 25px;
+  transition: color 0.2s;
+}
+.inline-link span {
+  transition: transform 0.2s;
+}
+.inline-link:hover span,
+.inline-link:focus-visible span {
+  transform: translate(3px, -3px);
+}
+.rail-light {
+  left: 8%;
+  top: 185px;
+  width: 77%;
+  background: none;
+  box-shadow: none;
+  animation: none;
+}
+.rail-light::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 1px;
+  background: #e9ddc2;
+  box-shadow: 0 0 8px #e5dbbd;
+  animation: rail-glide 5s ease-in-out infinite;
+}
+@keyframes rail-glide {
+  0% {
+    transform: translate(0, 0) rotate(-18deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(calc(77cqw - 40px), -105px) rotate(-18deg);
+    opacity: 0;
+  }
+}
+.rail-diagram {
+  container-type: inline-size;
+}
+.process-visual.offscreen .rail-light::after {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .inline-link span {
+    transition: none;
+  }
+}

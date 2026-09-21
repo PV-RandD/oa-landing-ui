@@ -1,1 +1,12 @@
 .DS_Store
+dist/
+__pycache__/
+*.sb-*
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+.env*
+!.env.example
+OPEN-RAILS-PROMPTS.md
+PROMPTS.md
