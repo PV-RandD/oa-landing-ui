@@ -45,7 +45,7 @@ Build command: `pnpm build`. Publish directory: `out`. No hosting target is conf
 
 The hero uses silent 10-second camera-motion loops, with separate desktop/mobile encodes and matching WebP stills. These are camera moves over artwork, not independent object animation. The OA logo and favicon icon retain the original brand artwork. The favicon uses an SVG canvas to preserve the icon's aspect ratio. Social metadata uses the approved hero PNG.
 
-Contact CTAs lead to the existing OpenAssets partner page. No new form backend, analytics, or cookies are introduced. Media-generation prompts are kept in the untracked `PROMPTS.md` and `OPEN-RAILS-PROMPTS.md`.
+Contact CTAs lead to the existing OpenAssets partner page. No new form backend, analytics, or cookies are introduced.
 
 ## Migration validation
 
