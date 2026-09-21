@@ -8,7 +8,7 @@
     "build": "next build",
     "typecheck": "tsc --noEmit",
     "test": "node --test tests/*.test.cjs",
-    "preview": "pnpm dlx serve out"
+    "preview": "pnpm dlx serve@14 out"
   },
   "dependencies": {
     "motion": "12.34.0",
