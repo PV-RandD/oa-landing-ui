@@ -11,7 +11,7 @@ pnpm install --frozen-lockfile
 pnpm dev
 ```
 
-Open http://127.0.0.1:4173. This starts Next.js, including React Fast Refresh.
+Open http://localhost:3000. This starts Next.js, including React Fast Refresh.
 
 ## Verify and build
 

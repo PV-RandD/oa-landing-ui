@@ -1,4 +1,4 @@
-const configuredUrl = process.env.SITE_URL || "http://127.0.0.1:4173";
+const configuredUrl = process.env.SITE_URL || "http://localhost:3000";
 export const siteUrl = new URL(configuredUrl);
 export const indexable = process.env.SITE_INDEXABLE === "true";
 if (indexable && siteUrl.protocol !== "https:")
